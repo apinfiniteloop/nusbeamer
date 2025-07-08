@@ -1,15 +1,24 @@
 \ProvidesPackage{beamerthemeNUS}
 
+
 \useoutertheme{default}
 \useinnertheme{default}
 \usecolortheme{default}
 \usefonttheme{default}
 
-\definecolor{NUSBlue}{RGB}{24, 61, 120}
+\definecolor{NUSBlue}{RGB}{24, 61, 120} % NUS Blue
+\definecolor{NUSOrange}{RGB}{213, 115, 46} % NUS Orange
+\definecolor{TextGray}{RGB}{64, 64, 64} % Text color
 
+% General colors
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{normal text}{fg=TextGray, bg=white}
 \setbeamercolor{structure}{fg=NUSBlue}
-\setbeamercolor{frametitle}{bg=NUSBlue, fg=white}
-\setbeamercolor{title}{bg=NUSBlue, fg=white}
+\setbeamercolor{frametitle}{bg=NUSBlue, fg=TextGray}
+\setbeamercolor{title}{fg=TextGray}
+\setbeamercolor{date}{fg=TextGray}
+\setbeamercolor{author}{fg=TextGray}
+\setbeamercolor{structure}{fg=NUSBlue}
 
 \setbeamertemplate{footline}[frame number]
 
@@ -19,6 +28,29 @@
     \insertframetitle
     \vspace{3pt}
     \hrule height 2pt
+}
+
+\setbeamertemplate{title page}{%
+    \begin{flushleft}
+        \vspace*{1cm}
+
+        % Title
+        {\usebeamerfont{title}\usebeamercolor[fg]{title}\huge\inserttitle\par}
+        \vspace{1em}
+        \color{NUSBlue}\hrule height 2pt width 0.25\textwidth
+        \vspace{1em}
+
+        % Subtitle
+        {\color{NUSOrange}\bfseries\Large\insertsubtitle\par}
+        \vspace{1.5em}
+
+        % Author
+        {\color{TextGray}\insertauthor\par}
+        \vspace{0.5em}
+
+        % Date
+        {\color{TextGray}\insertdate\par}
+    \end{flushleft}
 }
 
 % Remove navigation symbols
