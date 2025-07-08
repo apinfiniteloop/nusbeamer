@@ -1,0 +1,25 @@
+\ProvidesPackage{beamerthemeNUS}
+
+\useoutertheme{default}
+\useinnertheme{default}
+\usecolortheme{default}
+\usefonttheme{default}
+
+\definecolor{NUSBlue}{RGB}{24, 61, 120}
+
+\setbeamercolor{structure}{fg=NUSBlue}
+\setbeamercolor{frametitle}{bg=NUSBlue, fg=white}
+\setbeamercolor{title}{bg=NUSBlue, fg=white}
+
+\setbeamertemplate{footline}[frame number]
+
+\setbeamertemplate{frametitle}
+{
+    \vspace{3pt}
+    \insertframetitle
+    \vspace{3pt}
+    \hrule height 2pt
+}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}

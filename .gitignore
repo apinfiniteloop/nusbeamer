@@ -1,0 +1,60 @@
+# ----------------------------
+# LaTeX intermediate files
+# ----------------------------
+*.aux
+*.bbl
+*.blg
+*.brf
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex.gz(busy)
+*.xdv
+
+# PDF viewer & editor temp files
+*.nav
+*.snm
+*.vrb
+
+# LaTeX make tools
+*.dvi
+*.ps
+
+# Build artifacts
+*.run.xml
+*.bcf
+
+# Editors
+*~
+*.swp
+*.bak
+*.tmp
+*.backup
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# macOS
+.DS_Store
+
+# Other IDEs
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Auxiliary folders
+_build/
+output/
