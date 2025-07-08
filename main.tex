@@ -1,9 +1,16 @@
 \documentclass[aspectratio=169]{beamer}
+\usepackage{amsmath, amssymb, amsthm}
 \usepackage{NUS/beamerthemeNUS}
 \usetheme{NUS} % Or aspectratio=43 for 4:3
 
-\title{Your Presentation Title}
-\author{Your Name}
+\renewcommand{\emph}[1]{{\color{NUSOrange}\textbf{#1}}}
+
+
+\title{An Extremely Long Presentation Title That's Used for Testing Aesthetics on the Title Page}
+\subtitle{ABC Conference\\Earth, Solar System, The Milky Way}
+\author[Your Name]{Your Name\\
+        In Collaboration with Other names\\
+        Department, University}
 \institute{Your Institute}
 \date{\today}
 
@@ -13,23 +20,65 @@
     \titlepage
 \end{frame}
 
-\begin{frame}{Outline}
+\begin{frame}
+    \frametitle{Table of Contents}
     \tableofcontents
 \end{frame}
 
 \section{Introduction}
-\begin{frame}{Introduction}
-    % Your content here
+\begin{frame}
+    \frametitle{Introduction}
+    \framesubtitle{A Subtitle Which Is Usually Longer}
+    
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \linespread{1.5}\selectfont % Temporarily adjust line spacing for this frame only
+            \begin{itemize}
+                \item This is an introduction sentence which could be long
+                \begin{itemize}
+                    \item This is a nested item 1
+                    \item This is a nested item 2
+                \end{itemize}
+                \item This is another introduction sentence. \emph{Emphasize} this word.
+                \item This is another another sentence.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \includegraphics[width=0.6\linewidth]{assets/nus-logo-blue-horizontal.jpg}
+                \caption{NUS Logo}
+                \label{fig:logo}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \section{Main Content}
-\begin{frame}{Main Topic}
-    % Your content here
+\begin{frame}
+    % \linespread{1.2}
+    \frametitle{Main Topic}
+    \begin{block}{This is a block.}
+        This is a block. Write some symbols $a,b,c,$. And
+        \begin{equation}
+            a=\dfrac{\sum_{a}^{b}c+d}{e+f}.
+        \end{equation}
+    \end{block}
+    \begin{exampleblock}{This is an orange block.}
+        This is an orange block. Write other symbols $\alpha, \beta$, and
+        \begin{equation}
+            \alpha=\beta\times\dfrac{\alpha}{\beta}.
+        \end{equation}
+    \end{exampleblock}
 \end{frame}
 
 \section{Conclusion}
-\begin{frame}{Conclusion}
-    % Your content here
+\begin{frame}
+    \frametitle{Conclusion}
+    \begin{itemize}
+        \item This is one bullet point. It can be a long sentence.
+        \item This is another bullet point. It can be another long sentence.
+        \item This is another another bullet point. It can be yet another long sentence.
+    \end{itemize}
 \end{frame}
 
 \end{document}

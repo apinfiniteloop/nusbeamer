@@ -1,5 +1,5 @@
 \ProvidesPackage{beamerthemeNUS}
-
+\RequirePackage{tikz}
 
 \useoutertheme{default}
 \useinnertheme{default}
@@ -7,8 +7,11 @@
 \usefonttheme{default}
 
 \definecolor{NUSBlue}{RGB}{24, 61, 120} % NUS Blue
+\definecolor{NUSLightBlue}{RGB}{208, 229, 238} % NUS Light Blue
 \definecolor{NUSOrange}{RGB}{213, 115, 46} % NUS Orange
+\definecolor{NUSLightOrange}{RGB}{255, 235, 220}
 \definecolor{TextGray}{RGB}{64, 64, 64} % Text color
+\definecolor{TextLightGray}{RGB}{127, 127, 127} % Light text color
 
 % General colors
 \setbeamercolor{background canvas}{bg=white}
@@ -20,15 +23,120 @@
 \setbeamercolor{author}{fg=TextGray}
 \setbeamercolor{structure}{fg=NUSBlue}
 
-\setbeamertemplate{footline}[frame number]
+% Block title bar (top)
+\setbeamercolor{block title}{fg=white,bg=NUSBlue}
 
-\setbeamertemplate{frametitle}
-{
-    \vspace{3pt}
-    \insertframetitle
-    \vspace{3pt}
-    \hrule height 2pt
+% Block body (background + border)
+\setbeamercolor{block body}{fg=TextGray,bg=NUSLightBlue}
+
+% Optional: border around block (enable rounded)
+\setbeamertemplate{blocks}[shadow=false]
+
+\setbeamercolor{block title example}{fg=white,bg=NUSOrange}
+\setbeamercolor{block body example}{fg=TextGray,bg=NUSLightOrange}
+
+
+
+% \setbeamertemplate{background canvas}{%
+%   \begin{tikzpicture}[remember picture,overlay]
+%     \node[anchor=north east, xshift=-1cm, yshift=-0.5cm]
+%       at (current page.north east) {
+%         \includegraphics[height=.72cm]{assets/nus-logo-blue-horizontal.jpg}
+%       };
+%   \end{tikzpicture}
+% }
+
+% \setbeamertemplate{frametitle}{
+%     \vspace{0.5em}
+%     {\usebeamerfont{frametitle}\color{TextGray}%
+%      \LARGE\insertframetitle\par}%
+%     \vspace{0.2em}
+%     {\usebeamerfont{framesubtitle}\color{TextLightGray}%
+%      \large\insertframesubtitle\par}%
+%     \vspace{0.5em}
+%     \hrule \vspace{0.5em}
+% }
+
+% \setbeamertemplate{frametitle}{
+%     \begin{minipage}[t]{0.74\textwidth}
+%         {\usebeamerfont{frametitle}\color{TextGray}\LARGE\strut\insertframetitle\par}
+%         {\usebeamerfont{framesubtitle}\color{TextLightGray}\large\strut\insertframesubtitle\par}
+%     \end{minipage}%
+%     \hfill%
+%     \begin{minipage}[t]{0.20\textwidth}
+%         \vspace{-0.3em} % fine-tune alignment
+%         \raggedleft
+%         \includegraphics[height=0.7cm]{assets/nus-logo-blue-horizontal.jpg}
+%     \end{minipage}
+
+%     % \vspace{0.5em}
+%     \color{TextGray}\rule{\textwidth}{0.5pt}
+%     \vspace{1.0em}
+% }
+
+% Utility macro to test for empty subtitle
+\makeatletter
+% \newcommand{\ifsubtitleemptyTF}[2]{%
+%   \def\tempSubtitle{\insertframesubtitle}%
+%   \ifx\tempSubtitle\@empty
+%     #1% if empty
+%   \else
+%     #2% if not empty
+%   \fi
+% }
+
+\setbeamertemplate{frametitle}{
+  \begin{minipage}[t]{0.74\textwidth}
+    % {\usebeamerfont{frametitle}\color{TextGray}\LARGE\strut\insertframetitle\par}
+    \ifx\insertframesubtitle\@empty
+      {\usebeamerfont{frametitle}\color{TextGray}\LARGE\strut\insertframetitle\par}
+    \else
+      \vspace{-0.7em}
+      {\usebeamerfont{frametitle}\color{TextGray}\LARGE\strut\insertframetitle\par}
+      \vspace*{-0.1em}
+      {\usebeamerfont{framesubtitle}\color{TextLightGray}\large\strut\insertframesubtitle\par}
+      % \vspace{0.3em} % tighter vertical spacing below subtitle
+    \fi
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.20\textwidth}
+    \vspace{-0.2em} % aligns with top of text block
+    \raggedleft
+    \includegraphics[height=0.7cm]{assets/nus-logo-blue-horizontal.jpg}
+  \end{minipage}
+
+  % \vspace{0.5em}
+  \color{TextGray}\rule{\textwidth}{0.5pt}
+  % \vspace{1.0em} % space between title block and slide content
 }
+
+\makeatother
+
+
+% \setbeamertemplate{frametitle}{%
+%   % Top vertical spacing
+%   % \vspace{0.8em}
+
+%   % Left: Title and Subtitle Block
+%   \begin{minipage}[t]{0.74\textwidth}
+%     \ifsubtitleemptyTF
+%       {}
+%       {}
+%   \end{minipage}%
+
+%   % Right: Logo
+%   \hfill
+  
+
+%   % Rule and spacing after
+%   % \vspace{0.5em}
+  
+%   % \vspace{1.0em}
+% }
+
+
+
+\setbeamertemplate{footline}[frame number]
 
 \setbeamertemplate{title page}{%
     \begin{flushleft}
@@ -38,10 +146,10 @@
         {\usebeamerfont{title}\usebeamercolor[fg]{title}\huge\inserttitle\par}
         \vspace{1em}
         \color{NUSBlue}\hrule height 2pt width 0.25\textwidth
-        \vspace{1em}
+        \vspace{2em}
 
         % Subtitle
-        {\color{NUSOrange}\bfseries\Large\insertsubtitle\par}
+        {\color{NUSOrange}\large\insertsubtitle\par}
         \vspace{1.5em}
 
         % Author
