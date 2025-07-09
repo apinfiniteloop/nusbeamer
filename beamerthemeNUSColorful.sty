@@ -1,0 +1,119 @@
+\ProvidesPackage{beamerthemeNUSColorful}
+\RequirePackage{tikz}
+
+\useoutertheme{default}
+\useinnertheme{default}
+\usecolortheme{default}
+\usefonttheme{default}
+
+\definecolor{NUSBlue}{RGB}{24, 61, 120} % NUS Blue
+\definecolor{NUSLightBlue}{RGB}{208, 229, 238}
+\definecolor{NUSOrange}{RGB}{213, 115, 46} % NUS Orange
+\definecolor{NUSLightOrange}{RGB}{255, 235, 220}
+\definecolor{TextGray}{RGB}{64, 64, 64} % Text
+\definecolor{TextLightGray}{RGB}{127, 127, 127} % Light text color
+
+% General colors
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{normal text}{fg=TextGray, bg=white}
+\setbeamercolor{structure}{fg=NUSBlue}
+\setbeamercolor{frametitle}{bg=NUSBlue, fg=white}
+\setbeamercolor{framesubtitle}{fg=white}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{date}{fg=TextGray}
+\setbeamercolor{author}{fg=TextGray}
+\setbeamercolor{structure}{fg=NUSBlue}
+\setbeamercolor{banner}{bg=NUSBlue}
+
+\setbeamertemplate{blocks}[shadow=false]
+\setbeamercolor{block title}{fg=white,bg=NUSBlue}
+\setbeamercolor{block body}{fg=TextGray,bg=NUSLightBlue}
+\setbeamercolor{block title example}{fg=white,bg=NUSOrange}
+\setbeamercolor{block body example}{fg=TextGray,bg=NUSLightOrange}
+\setbeamercolor{author in head/foot}{fg=white, bg=NUSBlue}
+\setbeamercolor{title in head/foot}{fg=white, bg=NUSBlue}
+\setbeamercolor{date in head/foot}{fg=white, bg=NUSBlue}
+
+
+\setbeamertemplate{title page}{%
+    \vspace*{-2em}
+    \begin{beamercolorbox}[wd=\paperwidth, ht=4cm, leftskip=2.5em]{banner}
+      % \begin{minipage}[t]{\textwidth}
+        % \vspace*{-2em}
+        % \par
+        % \vspace{-2em}
+        \strut
+        \includegraphics[height=.8cm]{assets/nus-logo-white-nobg.png}
+        \vspace*{1em}\par
+        % Title
+        {\usebeamerfont{title}\usebeamercolor[fg]{title}\huge\inserttitle\par}
+        \vspace{0.5em}
+    \end{beamercolorbox}
+    \vspace{0.5em}
+
+    {\color{NUSOrange}\large\insertsubtitle\par}
+    \vspace{1.5em}
+
+    {\color{TextGray}\insertauthor\par}
+    \vspace{0.5em}
+
+    {\color{TextGray}\insertdate\par}
+}
+
+\makeatletter
+
+\setbeamertemplate{frametitle}{
+\begin{beamercolorbox}[wd=\paperwidth, ht=2.8ex, dp=4ex, leftskip=1.5em, rightskip=1.5em]{frametitle}
+  % \vspace*{-0.5em}\par
+  \begin{minipage}[t]{0.74\textwidth}
+    % {\usebeamerfont{frametitle}\color{TextGray}\LARGE\strut\insertframetitle\par}
+    \ifx\insertframesubtitle\@empty
+      \vspace{-0.2em}
+      {\usebeamerfont{frametitle}\color{white}\LARGE\strut\insertframetitle\par}
+    \else
+      \vspace{-0.7em}
+      {\usebeamerfont{frametitle}\color{white}\LARGE\strut\insertframetitle\par}
+      \vspace*{-0.1em}
+      {\usebeamerfont{framesubtitle}\color{white}\large\strut\insertframesubtitle\par}
+      % \vspace{0.3em} % tighter vertical spacing below subtitle
+    \fi
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.20\textwidth}
+    \vspace{-0.2em} % aligns with top of text block
+    \raggedleft
+    \includegraphics[height=0.7cm]{assets/nus-logo-white-nobg.png}
+  \end{minipage}
+\end{beamercolorbox}
+  % \vspace{0.5em}
+%   \color{TextGray}\rule{\textwidth}{0.5pt}
+  % \vspace{1.0em} % space between title block and slide content
+}
+
+\makeatother
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    % \begin{beamercolorbox}[wd=0.33\paperwidth,ht=2.5ex,dp=1ex,leftskip=1em]{author in head/foot}%
+    %   \usebeamerfont{author in head/foot}\insertshortauthor
+    % \end{beamercolorbox}%
+    % \begin{beamercolorbox}[wd=0.34\paperwidth,ht=2.5ex,dp=1ex,center]{title in head/foot}%
+    %   \usebeamerfont{title in head/foot}\insertsectionhead
+    % \end{beamercolorbox}%
+    % \begin{beamercolorbox}[wd=0.33\paperwidth,ht=2.5ex,dp=1ex,right]{date in head/foot}%
+    %   \usebeamerfont{date in head/foot}\insertframenumber{} / \inserttotalframenumber
+    %   \hspace{1em}
+    % \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=\paperwidth, ht=2.5ex, dp=1ex, leftskip=1em]{author in head/foot}%
+      \usebeamerfont{author in head/foot}\insertshortauthor
+      \hfill
+      \usebeamerfont{title in head/foot}\insertsectionhead
+      \hfill
+      \usebeamerfont{date in head/foot}\insertframenumber{} / \inserttotalframenumber
+      \hspace{1em}
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\setbeamertemplate{navigation symbols}{}

@@ -23,67 +23,14 @@
 \setbeamercolor{author}{fg=TextGray}
 \setbeamercolor{structure}{fg=NUSBlue}
 
-% Block title bar (top)
-\setbeamercolor{block title}{fg=white,bg=NUSBlue}
-
-% Block body (background + border)
-\setbeamercolor{block body}{fg=TextGray,bg=NUSLightBlue}
-
-% Optional: border around block (enable rounded)
 \setbeamertemplate{blocks}[shadow=false]
-
+\setbeamercolor{block title}{fg=white,bg=NUSBlue}
+\setbeamercolor{block body}{fg=TextGray,bg=NUSLightBlue}
 \setbeamercolor{block title example}{fg=white,bg=NUSOrange}
 \setbeamercolor{block body example}{fg=TextGray,bg=NUSLightOrange}
 
 
-
-% \setbeamertemplate{background canvas}{%
-%   \begin{tikzpicture}[remember picture,overlay]
-%     \node[anchor=north east, xshift=-1cm, yshift=-0.5cm]
-%       at (current page.north east) {
-%         \includegraphics[height=.72cm]{assets/nus-logo-blue-horizontal.jpg}
-%       };
-%   \end{tikzpicture}
-% }
-
-% \setbeamertemplate{frametitle}{
-%     \vspace{0.5em}
-%     {\usebeamerfont{frametitle}\color{TextGray}%
-%      \LARGE\insertframetitle\par}%
-%     \vspace{0.2em}
-%     {\usebeamerfont{framesubtitle}\color{TextLightGray}%
-%      \large\insertframesubtitle\par}%
-%     \vspace{0.5em}
-%     \hrule \vspace{0.5em}
-% }
-
-% \setbeamertemplate{frametitle}{
-%     \begin{minipage}[t]{0.74\textwidth}
-%         {\usebeamerfont{frametitle}\color{TextGray}\LARGE\strut\insertframetitle\par}
-%         {\usebeamerfont{framesubtitle}\color{TextLightGray}\large\strut\insertframesubtitle\par}
-%     \end{minipage}%
-%     \hfill%
-%     \begin{minipage}[t]{0.20\textwidth}
-%         \vspace{-0.3em} % fine-tune alignment
-%         \raggedleft
-%         \includegraphics[height=0.7cm]{assets/nus-logo-blue-horizontal.jpg}
-%     \end{minipage}
-
-%     % \vspace{0.5em}
-%     \color{TextGray}\rule{\textwidth}{0.5pt}
-%     \vspace{1.0em}
-% }
-
-% Utility macro to test for empty subtitle
 \makeatletter
-% \newcommand{\ifsubtitleemptyTF}[2]{%
-%   \def\tempSubtitle{\insertframesubtitle}%
-%   \ifx\tempSubtitle\@empty
-%     #1% if empty
-%   \else
-%     #2% if not empty
-%   \fi
-% }
 
 \setbeamertemplate{frametitle}{
   \begin{minipage}[t]{0.74\textwidth}
@@ -112,35 +59,12 @@
 
 \makeatother
 
-
-% \setbeamertemplate{frametitle}{%
-%   % Top vertical spacing
-%   % \vspace{0.8em}
-
-%   % Left: Title and Subtitle Block
-%   \begin{minipage}[t]{0.74\textwidth}
-%     \ifsubtitleemptyTF
-%       {}
-%       {}
-%   \end{minipage}%
-
-%   % Right: Logo
-%   \hfill
-  
-
-%   % Rule and spacing after
-%   % \vspace{0.5em}
-  
-%   % \vspace{1.0em}
-% }
-
-
-
 \setbeamertemplate{footline}[frame number]
 
 \setbeamertemplate{title page}{%
     \begin{flushleft}
-        \vspace*{1cm}
+        % \vspace*{1cm}
+        \includegraphics[height=.8cm]{assets/nus-logo-blue-horizontal.jpg}
 
         % Title
         {\usebeamerfont{title}\usebeamercolor[fg]{title}\huge\inserttitle\par}
